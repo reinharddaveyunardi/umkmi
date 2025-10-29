@@ -7,12 +7,10 @@ import { Colors } from "@/constants/Colors";
 import { umkmList as rawUmkmList } from "@/data/umkmdata";
 import { FlattenedUMKM, NearbyUMKM, NewUMKM } from "@/interfaces/Umkm";
 
-// Import GSAP dan Draggable
 import { gsap } from "gsap";
 import { Draggable } from "gsap/Draggable";
 import dynamic from "next/dynamic";
 
-// Daftarkan plugin GSAP hanya di sisi klien
 if (typeof window !== "undefined") {
   gsap.registerPlugin(Draggable);
 }
@@ -44,10 +42,37 @@ const UMKMTooltip = ({
   data: NearbyUMKM & { x: number; y: number };
   containerOffset: { top: number; left: number };
 }) => {
+  const SCREEN_WIDTH = typeof window !== "undefined" ? window.innerWidth : 0;
+  const TOOLTIP_WIDTH = 192;
+  const OFFSET_X = 10;
+  const PADDING_RIGHT = 15;
+
+  const rawLeft = containerOffset.left + data.x + OFFSET_X;
+
+  let finalLeft: number;
+  if (rawLeft + TOOLTIP_WIDTH > SCREEN_WIDTH - PADDING_RIGHT) {
+    finalLeft = containerOffset.left + data.x - TOOLTIP_WIDTH - OFFSET_X;
+    finalLeft = Math.max(10, finalLeft);
+  } else {
+    finalLeft = rawLeft;
+  }
+
+  const TOP_MARGIN = 20;
+  const OFFSET_Y = 120;
+
+  const rawTop = containerOffset.top + data.y - OFFSET_Y;
+
+  let finalTop: number;
+  if (rawTop < window.scrollY + TOP_MARGIN) {
+    finalTop = containerOffset.top + data.y + 15;
+  } else {
+    finalTop = rawTop;
+  }
+
   const style: React.CSSProperties = {
     position: "absolute",
-    left: containerOffset.left + data.x + 10,
-    top: containerOffset.top + data.y - 120,
+    left: finalLeft,
+    top: finalTop,
     pointerEvents: "none",
     zIndex: 100,
   };
@@ -113,7 +138,6 @@ const MapComponent = () => {
     }));
   }, []);
 
-  // Fungsi baru untuk mendapatkan skala saat ini
   const getCurrentScale = () => {
     if (mapGroupRef.current) {
       return gsap.getProperty(mapGroupRef.current, "scale") as number;
@@ -121,18 +145,31 @@ const MapComponent = () => {
     return 1;
   };
 
-  const handleMouseEnter = (u: NearbyUMKM, coords: [number, number]) => {
-    if (mapContainerRef.current) {
-      const rect = mapContainerRef.current.getBoundingClientRect();
-      setContainerOffset({
-        top: rect.top + window.scrollY,
-        left: rect.left + window.scrollX,
-      });
-    }
+  const handleMouseEnter = (u: FlattenedUMKM, coords: [number, number]) => {
+    if (!mapContainerRef.current || !mapGroupRef.current) return;
+
+    const rect = mapContainerRef.current.getBoundingClientRect();
+    setContainerOffset({
+      top: rect.top + window.scrollY,
+      left: rect.left + window.scrollX,
+    });
+
+    const currentScale = getCurrentScale();
+    const currentX = gsap.getProperty(mapGroupRef.current, "x") as number;
+    const currentY = gsap.getProperty(mapGroupRef.current, "y") as number;
+
+    const transformedX = coords[0] * currentScale + currentX;
+    const transformedY = coords[1] * currentScale + currentY;
+
+    const dist = userPos
+      ? distance(userPos.lat, userPos.lon, u.lat, u.lon)
+      : Infinity;
+
     setHoveredUMKM({
       ...u,
-      x: coords[0],
-      y: coords[1],
+      distance: dist,
+      x: transformedX,
+      y: transformedY,
     });
   };
 
@@ -189,12 +226,10 @@ const MapComponent = () => {
       .catch((error) => console.error("Map Data Error:", error));
   }, []);
 
-  // 🌟 CRITICAL CHANGE HERE: High-Accuracy Geolocation Logic 🌟
   useEffect(() => {
     let locationProcessed = false;
-    const DEFAULT_FALLBACK_POS = { lat: -6.593, lon: 106.8 }; // Default: Bogor/Jakarta area
+    const DEFAULT_FALLBACK_POS = { lat: -6.593, lon: 106.8 };
 
-    // 1. Check for cached location (to prevent re-prompting immediately)
     const storedPos = sessionStorage.getItem("userPos");
     if (storedPos) {
       const { lat, lon } = JSON.parse(storedPos);
@@ -202,20 +237,17 @@ const MapComponent = () => {
       locationProcessed = true;
     }
 
-    // 2. Request new high-accuracy location if not cached
     if (!locationProcessed && navigator.geolocation) {
       const options = {
-        // ESSENTIAL: Forces the device to use GPS/Wi-Fi for high precision
         enableHighAccuracy: true,
-        timeout: 15000, // 15 seconds to get a good fix
-        maximumAge: 0, // Ensures a new, fresh position is obtained
+        timeout: 15000,
+        maximumAge: 0,
       };
 
       const locationErrorCallback = (error: GeolocationPositionError) => {
         console.error("Geolocation Error:", error.code, error.message);
         let userMessage = "Gagal mendapatkan lokasi tepat Anda.";
 
-        // Detailed error messages for better UX
         if (error.code === error.PERMISSION_DENIED) {
           userMessage = "Akses lokasi ditolak. Menggunakan lokasi perkiraan.";
         } else if (error.code === error.TIMEOUT) {
@@ -226,15 +258,12 @@ const MapComponent = () => {
             "Lokasi tidak tersedia (sinyal lemah). Menggunakan lokasi perkiraan.";
         }
 
-        // Fallback: Use the default location if the request fails
         processLocation(DEFAULT_FALLBACK_POS.lat, DEFAULT_FALLBACK_POS.lon);
-        // Alert the user about the low accuracy fallback
         alert(userMessage + " (Akurasi saat ini rendah/menggunakan default).");
       };
 
       navigator.geolocation.getCurrentPosition(
         (pos) => {
-          // Success: Process the high-accuracy location
           processLocation(pos.coords.latitude, pos.coords.longitude);
           console.log(
             "High-accuracy location retrieved. Accuracy:",
@@ -246,16 +275,13 @@ const MapComponent = () => {
         options
       );
     } else if (!locationProcessed) {
-      // 3. Final fallback if Geolocation API is not supported
       processLocation(DEFAULT_FALLBACK_POS.lat, DEFAULT_FALLBACK_POS.lon);
     }
   }, [processedUMKMList]);
 
-  // useEffect baru untuk mengaktifkan Draggable (Pan)
   useEffect(() => {
     if (!mapGroupRef.current) return;
 
-    // Draggable mengizinkan pan (geser) pada elemen <g>
     const instance = Draggable.create(mapGroupRef.current, {
       type: "x,y",
       bounds: svgRef.current,
@@ -263,7 +289,6 @@ const MapComponent = () => {
       inertia: true,
       allowContextMenu: true,
       cursor: "grab",
-      // Tambahkan touch-action none di elemen SVG agar Draggable berfungsi lebih baik di sentuhan
       onPress: () => {
         if (svgRef.current) {
           svgRef.current.style.touchAction = "none";
@@ -281,7 +306,6 @@ const MapComponent = () => {
     };
   }, [mapDimensions]);
 
-  // useEffect baru untuk mengaktifkan Wheel Zoom
   useEffect(() => {
     const svgElement = svgRef.current;
     if (!svgElement) return;
@@ -297,14 +321,12 @@ const MapComponent = () => {
       const zoomFactor = event.deltaY > 0 ? 0.8 : 1.25;
 
       let newScale = currentScale * zoomFactor;
-      // Batasi zoom minimal 1 (skala normal) hingga maksimal 8
       newScale = Math.max(1, Math.min(8, newScale));
 
       gsap.to(mapGroupRef.current, {
         scale: newScale,
         duration: 0.2,
         ease: "power2.out",
-        // Zoom di titik kursor/jari
         transformOrigin: `${mouseX}px ${mouseY}px`,
       });
     };
@@ -376,12 +398,9 @@ const MapComponent = () => {
             return (
               <g
                 key={`umkm-${u.name}-${i}`}
-                onMouseEnter={() =>
-                  handleMouseEnter({ ...u, distance: dist }, coords)
-                }
+                onMouseEnter={() => handleMouseEnter(u, coords)}
                 onMouseLeave={handleMouseLeave}
               >
-                {/* Tambahkan hitbox transparan agar tooltip mudah diakses */}
                 <circle
                   cx={coords[0]}
                   cy={coords[1]}
