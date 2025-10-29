@@ -10,6 +10,7 @@ import { FlattenedUMKM, NearbyUMKM, NewUMKM } from "@/interfaces/Umkm";
 // Import GSAP dan Draggable
 import { gsap } from "gsap";
 import { Draggable } from "gsap/Draggable";
+import dynamic from "next/dynamic";
 
 // Daftarkan plugin GSAP hanya di sisi klien
 if (typeof window !== "undefined") {
@@ -188,9 +189,12 @@ const MapComponent = () => {
       .catch((error) => console.error("Map Data Error:", error));
   }, []);
 
+  // 🌟 CRITICAL CHANGE HERE: High-Accuracy Geolocation Logic 🌟
   useEffect(() => {
     let locationProcessed = false;
+    const DEFAULT_FALLBACK_POS = { lat: -6.593, lon: 106.8 }; // Default: Bogor/Jakarta area
 
+    // 1. Check for cached location (to prevent re-prompting immediately)
     const storedPos = sessionStorage.getItem("userPos");
     if (storedPos) {
       const { lat, lon } = JSON.parse(storedPos);
@@ -198,13 +202,52 @@ const MapComponent = () => {
       locationProcessed = true;
     }
 
+    // 2. Request new high-accuracy location if not cached
     if (!locationProcessed && navigator.geolocation) {
+      const options = {
+        // ESSENTIAL: Forces the device to use GPS/Wi-Fi for high precision
+        enableHighAccuracy: true,
+        timeout: 15000, // 15 seconds to get a good fix
+        maximumAge: 0, // Ensures a new, fresh position is obtained
+      };
+
+      const locationErrorCallback = (error: GeolocationPositionError) => {
+        console.error("Geolocation Error:", error.code, error.message);
+        let userMessage = "Gagal mendapatkan lokasi tepat Anda.";
+
+        // Detailed error messages for better UX
+        if (error.code === error.PERMISSION_DENIED) {
+          userMessage = "Akses lokasi ditolak. Menggunakan lokasi perkiraan.";
+        } else if (error.code === error.TIMEOUT) {
+          userMessage =
+            "Waktu tunggu habis. Pastikan GPS/Wi-Fi aktif untuk akurasi tinggi.";
+        } else if (error.code === error.POSITION_UNAVAILABLE) {
+          userMessage =
+            "Lokasi tidak tersedia (sinyal lemah). Menggunakan lokasi perkiraan.";
+        }
+
+        // Fallback: Use the default location if the request fails
+        processLocation(DEFAULT_FALLBACK_POS.lat, DEFAULT_FALLBACK_POS.lon);
+        // Alert the user about the low accuracy fallback
+        alert(userMessage + " (Akurasi saat ini rendah/menggunakan default).");
+      };
+
       navigator.geolocation.getCurrentPosition(
-        (pos) => processLocation(pos.coords.latitude, pos.coords.longitude),
-        () => processLocation(-6.593, 106.8)
+        (pos) => {
+          // Success: Process the high-accuracy location
+          processLocation(pos.coords.latitude, pos.coords.longitude);
+          console.log(
+            "High-accuracy location retrieved. Accuracy:",
+            pos.coords.accuracy,
+            "meters"
+          );
+        },
+        locationErrorCallback,
+        options
       );
     } else if (!locationProcessed) {
-      processLocation(-6.593, 106.8);
+      // 3. Final fallback if Geolocation API is not supported
+      processLocation(DEFAULT_FALLBACK_POS.lat, DEFAULT_FALLBACK_POS.lon);
     }
   }, [processedUMKMList]);
 
@@ -406,3 +449,7 @@ const MapComponent = () => {
 };
 
 export default MapComponent;
+
+export const Map = dynamic(() => Promise.resolve(MapComponent), {
+  ssr: false,
+});

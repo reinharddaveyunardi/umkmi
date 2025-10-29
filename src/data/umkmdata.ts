@@ -69,7 +69,7 @@ const jkt: NewUMKM[] = [
       lat: -6.1226129,
       long: 106.8892223,
     },
-    rangePrice: { min: 10000, max: 25000 },
+    rangePrice: { min: 25000, max: 50000 },
     rating: 4.7,
     servicesOption: ["Dine In", "Take Away"],
     status: {
@@ -113,6 +113,62 @@ const jkt: NewUMKM[] = [
     },
     thumbnail:
       "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSyT_FHULDS1me14vjiGIE8WLkz4iRu6uVVyzYJwFYLsZ6_VNiKcxK1EJif5ZznM_PWnaH5y7rXv6AxMkr4rFp4iSLuLVpd8apZZTd8lWITwiVrzA4p97gaG3vLIlpbX8dt4_mSZ5g=w408-h306-k-no",
+  },
+  {
+    name: "Pondok Anugerah",
+    albums: [
+      "https://lh3.googleusercontent.com/geougc-cs/AMBA38uFFK_1uNME0X1z5EK7upLF3NyYvz_kX2JkPYambew1XPMY0OnEZBb9MxJ7q_onSmZE3PkYVk3lMSiodFaz2rxMHgQnBsfbSlBiqDUmPjCMXffqKrkFUL2ODVPNIMNe-Yu7RjRieDRvFTIr",
+      "https://lh3.googleusercontent.com/geougc-cs/AMBA38v5SPvN4b3DHkOIzbWvHWRetfGML2roHAz7HDZz3RPzLTZpomqIdmyUXmqBbWSUDvvKCWEglad01httJ-uimefPsW9RHYLG9CL2Ptz0kE49q_0eg19UgJGFec9GnotsKvqahNuN_SAEjGpU",
+    ],
+    location: {
+      lat: -6.4634663,
+      long: 107.0380631,
+      name: "Bukit heliconia, Jl. Citra Indah, Singasari, Kec. Jonggol, Kabupaten Bogor, Jawa Barat 16830",
+    },
+    rangePrice: { min: 10000, max: 25000 },
+    rating: 4.7,
+    servicesOption: ["Dine In", "Take Away"],
+    status: {
+      time: {
+        mon: {
+          isOpen: true,
+          open: "10:00",
+          close: "09:00",
+        },
+        tue: {
+          isOpen: true,
+          open: "10:00",
+          close: "09:00",
+        },
+        wed: {
+          isOpen: true,
+          open: "10:00",
+          close: "09:00",
+        },
+        thu: {
+          isOpen: true,
+          open: "10:00",
+          close: "09:00",
+        },
+        fri: {
+          isOpen: true,
+          open: "10:00",
+          close: "09:00",
+        },
+        sat: {
+          isOpen: true,
+          open: "10:00",
+          close: "09:00",
+        },
+        sun: {
+          isOpen: false,
+          open: "10:00",
+          close: "09:00",
+        },
+      },
+    },
+    thumbnail:
+      "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSypB3htd_N6Ib8sh1oDGtLHePaGDTdCxY9GlBiTavsTocGnIr7132Qr4myqD5DtA8mujwgir1K4fTHYS8qw5d93CjONecR9LIvQfmvNCl_JXRvLcX96wYKKr3vJSDkrNmVxK5MB=w408-h544-k-no",
   },
 ];
 
