@@ -172,4 +172,242 @@ const jkt: NewUMKM[] = [
   },
 ];
 
-export const umkmList = { jkt };
+const bdg: NewUMKM[] = [
+  {
+    name: "Soto Ayam Khas Madura Cak Zaeini",
+    albums: [
+      "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSxrMakHAy8glvgD3TrvdNCTAhIflo6C2E-nYYVjRpbgkgD_JTOKprxviWh99LTv5aM87g18LWWLL5-1kBVrw83c_tzMRnYfdC5zgU62GL92BbKeGURTxtyC8o78yJ05vntz2os=w203-h270-k-no",
+    ],
+    location: {
+      lat: -6.9851604,
+      long: 107.8814802,
+      name: "Jl. Soekarno-Hatta No.415, Karasak, Kec. Astanaanyar, Kota Bandung, Jawa Barat 40243",
+    },
+    rangePrice: { min: 10000, max: 25000 },
+    rating: 4.0,
+    servicesOption: ["Dine In", "Take Away"],
+    status: {
+      time: {
+        mon: {
+          isOpen: true,
+          open: "10:00",
+          close: "09:00",
+        },
+        tue: {
+          isOpen: true,
+          open: "10:00",
+          close: "09:00",
+        },
+        wed: {
+          isOpen: true,
+          open: "10:00",
+          close: "09:00",
+        },
+        thu: {
+          isOpen: true,
+          open: "10:00",
+          close: "09:00",
+        },
+        fri: {
+          isOpen: true,
+          open: "10:00",
+          close: "09:00",
+        },
+        sat: {
+          isOpen: true,
+          open: "10:00",
+          close: "09:00",
+        },
+        sun: {
+          isOpen: false,
+          open: "10:00",
+          close: "09:00",
+        },
+      },
+    },
+    thumbnail:
+      "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSzpDQLsI_LZdI1uF2YrBCvtFBNlNBJblx4kweKvZeBT1cp4OxPvl1PsAPJBqVggG9GMTSVP52QexS2--b6IX4QVVhkR77NYyOfW5Cqq8qKhl0eb_rQYH06Kq3K8ubyCkhwxQydW=w397-h298-k-no",
+  },
+];
+
+const banjarmasin: NewUMKM[] = [
+  {
+    name: "Soto Rina Kuin",
+    albums: [
+      "https://lh3.googleusercontent.com/geougc-cs/AMBA38tD41S7H3VnLNUjJgW05zgFilrl6MtqUoHuHuAig5CFObqbLgcUksszmndwrdb-pbhXFPsIVFxewE08-Vx-I8OmAUby-SzoiMEsRDJn1p2oFoctvLlTDKvaB3Trm5VQw-ZiBsk0eA",
+      "https://lh3.googleusercontent.com/geougc-cs/AMBA38uJi7vfEB9EX8VORIRqQVuRdz38VZRZN2v04xx0HuME8NjZtE2i1MPJjzMbFa1bX7c06kzJxVbcrHQCqfobkuOPmjVf72vs4lO2-09BG2xtxtNlqFx3e0C6HfBStwvafIaWCgcS",
+      "https://lh3.googleusercontent.com/geougc-cs/AMBA38tM_yGw_Je4Rd7wC42P4gB5zKN1w2lRmFBXXVsc4ptMufXJzFIe5CSoDX4AX5ARtJmEpkOUSudPdVA57bQGVn_Jns80S1Rp5Wr-hyVRIVEnftvhQshWRYNuJlZ9KovoICV8_dMcOw",
+    ],
+    location: {
+      lat: -3.2939629,
+      long: 114.5693837,
+      name: "Jl. Kuin Cerucuk, Kuin Cerucuk, Kec. Banjarmasin Bar., Kota Banjarmasin, Kalimantan Selatan 70127",
+    },
+    rangePrice: { min: 1, max: 50000 },
+    rating: 4.0,
+    servicesOption: ["Dine In", "Take Away"],
+    status: {
+      time: {
+        mon: {
+          isOpen: true,
+          open: "10:00",
+          close: "09:00",
+        },
+        tue: {
+          isOpen: true,
+          open: "10:00",
+          close: "09:00",
+        },
+        wed: {
+          isOpen: true,
+          open: "10:00",
+          close: "09:00",
+        },
+        thu: {
+          isOpen: true,
+          open: "10:00",
+          close: "09:00",
+        },
+        fri: {
+          isOpen: true,
+          open: "10:00",
+          close: "09:00",
+        },
+        sat: {
+          isOpen: true,
+          open: "10:00",
+          close: "09:00",
+        },
+        sun: {
+          isOpen: false,
+          open: "10:00",
+          close: "09:00",
+        },
+      },
+    },
+    thumbnail:
+      "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSxebPBeMXdDX7a3t3_tnMOi4w-t_rryAJCv_o1wtyVlgWSGYrqCAi9GQ2pCHZM1DUEGfJvFQ7jHTmPwBOKFOyVEtv9ITqBS3Ky5dAFXtl9Lu3Uqu7VgBtt2RCZ2wNwtUoqBW0w=w408-h408-k-no",
+  },
+];
+
+const palu: NewUMKM[] = [
+  {
+    name: "Rumah Makan Moro Seneng",
+    albums: [
+      "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSzEWOhEC8F4DHS69QAn4EHq42qb2rQsigJwxLq7YBn1leSBlbaY5VqsCk3eKvjVGy9vJ8me1KB6N6X5QK2P8oA4sMeAOloj6wZACu2qPNdntsGOpTRE6sdSVHOIvRyzsWR-89AD=w640-h640-n-k-no",
+      "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSw-MABpLXb_q3_V5eiFrHZwDzERkcsU01c-XxSz1wAH8Y3DPZRHNjUrEiB6BKQSv6T_6dKC3EwmbmTZRc1jXYrrlAdA5sn3CVFBOZikMwBkIqdCZLtHpHwhZwRPED_XTv5O4nvaZQ=w640-h640-n-k-no",
+      "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSzBoBa5wwOsl3BtqdsxEdlE8mBE231HcGakYAgLOTNnY7yrE-eCveKF2WM6YkSCj-BaxW03zGxOKf1nfzgS0GdpV7eNUTfUQ6M_N-3YPNhw4C5wGK9MIzjswgJ5ZpeLB-khDp5rZw=w640-h640-n-k-no",
+    ],
+    location: {
+      name: "Jl. Seneng, RT.1/RW.1, Seneng, Kec. Seneng, Kota Palu, Sulawesi Tengah 94115",
+      lat: -0.895677,
+      long: 119.8577633,
+    },
+    rangePrice: { min: 1, max: 50000 },
+    rating: 4.0,
+    servicesOption: ["Dine In", "Take Away"],
+    status: {
+      time: {
+        mon: {
+          isOpen: true,
+          open: "10:00",
+          close: "09:00",
+        },
+        tue: {
+          isOpen: true,
+          open: "10:00",
+          close: "09:00",
+        },
+        wed: {
+          isOpen: true,
+          open: "10:00",
+          close: "09:00",
+        },
+        thu: {
+          isOpen: true,
+          open: "10:00",
+          close: "09:00",
+        },
+        fri: {
+          isOpen: true,
+          open: "10:00",
+          close: "09:00",
+        },
+        sat: {
+          isOpen: true,
+          open: "10:00",
+          close: "09:00",
+        },
+        sun: {
+          isOpen: false,
+          open: "10:00",
+          close: "09:00",
+        },
+      },
+    },
+    thumbnail:
+      "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSxbYtTySjbQR_UI_BCcQod6LcIoe_MvQXVzqB9TrZt3VB4_hsEy8Ll3ydRsSbKPyrkpRhGc1sXj8YXOTTPWi6yGw0voZ5-VD9C0WwcNDlSxmCqE-vh9q7TrjEloz_gSthPoK2NQ8vbfN3Y=w408-h724-k-no",
+  },
+];
+
+const medan: NewUMKM[] = [
+  {
+    name: "Warung Mie Sop Kinanti",
+    location: {
+      name: "Jl.setia budi Gg. Tape waroeng miesop KINANTI simpang 5 psr.2, Helvetia Tim., Kec. Medan Helvetia, Kota Medan, Sumatera Utara 20117",
+      lat: 3.532509,
+      long: 98.6457199,
+    },
+    albums: [
+      "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSyE-2-dPOA65dOIazx4Iy5K-0uy4MbzsJ1q8vclnzS7wsx9oN4zJeFa86AZG0hbqzQaJH43RGVRUG-CFdg0G30vNoMJKv0DWJTv9nn7vXpm_7jOp5dWNhhC5M-FD8N2fDFfpJuNdQ=w640-h640-n-k-no",
+      "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSx4B61pjsdEf4rp-9KRieUFD9ow1rQIYHjWH2MaW30z6XI16w885xnu8YvsP5o61UBlRjh2gFSFZIrJgK4I-lHqUSpAo94TNvxnSjeoRqPspLvattNMnV2yIubmuKSahhe5otBV=w640-h640-n-k-no",
+      "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSwk_kUhPknAAboXrsZdXW-fDgtlZ-YhOdusGWNIapdbsqwcDKZ6zBSyI81Wtf9EisWRtdFxGr19qzWTA_oSSCzHGsWy-pktsnZUNcqf7oJ-VFd0ZxcOgbFLEB3sbibg7Dj8iU14=w640-h640-n-k-no",
+    ],
+    rangePrice: { min: 1, max: 25000 },
+    rating: 4.0,
+    servicesOption: ["Dine In", "Take Away"],
+    status: {
+      time: {
+        mon: {
+          isOpen: true,
+          open: "10:00",
+          close: "09:00",
+        },
+        tue: {
+          isOpen: true,
+          open: "10:00",
+          close: "09:00",
+        },
+        wed: {
+          isOpen: true,
+          open: "10:00",
+          close: "09:00",
+        },
+        thu: {
+          isOpen: true,
+          open: "10:00",
+          close: "09:00",
+        },
+        fri: {
+          isOpen: true,
+          open: "10:00",
+          close: "09:00",
+        },
+        sat: {
+          isOpen: true,
+          open: "10:00",
+          close: "09:00",
+        },
+        sun: {
+          isOpen: false,
+          open: "10:00",
+          close: "09:00",
+        },
+      },
+    },
+    thumbnail:
+      "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSwC83zMZFhOZMw8TrdTHook-VAgymUSKxaZoXA7ks3Z5-W506a3p-Fd04obJTU0Ynsu7NQuNUkvUWNHmqIq8p1crPzhdkMPEPbhmRifF8pkDtCvF5K9dSpRptaMsDn8bSjJy6lj=w520-h240-k-no",
+  },
+];
+
+export const umkmList = { jkt, bdg, banjarmasin, palu, medan };
