@@ -73,7 +73,7 @@ export default function Recommendation() {
       className={`flex flex-col items-center p-4 sm:p-6 md:p-8 bg-[#92B4F4] min-h-screen`}
     >
       <h1 className="text-3xl font-extrabold mb-8 text-black pb-2">
-        Top {MAX_RECOMMENDATIONS} Recommendations Near You
+        Top Recommendations For You
       </h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 sm:max-w-full lg:grid-cols-3 gap-6 w-full lg:max-w-[80%] sm:p-16 lg:p-16">
         {recommendation.map((u) => (
@@ -83,8 +83,7 @@ export default function Recommendation() {
 
       {recommendation.length === 0 && (
         <p className="text-gray-500 mt-12 text-lg p-6 bg-white rounded-lg shadow-inner">
-          Tidak ada rekomendasi UMKM yang cocok dalam jarak{" "}
-          {MAX_DISTANCE_METERS / 1000} km.
+          Tidak ada rekomendasi UMKM saat ini
         </p>
       )}
     </section>
