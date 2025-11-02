@@ -2,6 +2,7 @@ import { NewUMKM } from "@/interfaces/Umkm";
 
 const jkt: NewUMKM[] = [
   {
+    id: 28731,
     name: "Mie Baso Tenda Biru",
     rating: 4.5,
     rangePrice: { min: 5000, max: 10000 },
@@ -58,6 +59,7 @@ const jkt: NewUMKM[] = [
     },
   },
   {
+    id: 28732,
     name: "Rumah Makan Tumatenden",
     albums: [
       "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSxDJRpIotARUIhnB3QXUTpThpKsDKziUTkFxPvyA3vObpDSwLM9DVCI4E-ATPooN2gOqxNTpn24KwVWOHlCuaCvGLRrV49Lo-8uapy4elRBxJfLXYuvtBn6ueqzOyvBSGe7ocqV=w640-h640-n-k-no",
@@ -115,6 +117,7 @@ const jkt: NewUMKM[] = [
       "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSyT_FHULDS1me14vjiGIE8WLkz4iRu6uVVyzYJwFYLsZ6_VNiKcxK1EJif5ZznM_PWnaH5y7rXv6AxMkr4rFp4iSLuLVpd8apZZTd8lWITwiVrzA4p97gaG3vLIlpbX8dt4_mSZ5g=w408-h306-k-no",
   },
   {
+    id: 28733,
     name: "Pondok Anugerah",
     albums: [
       "https://lh3.googleusercontent.com/geougc-cs/AMBA38uFFK_1uNME0X1z5EK7upLF3NyYvz_kX2JkPYambew1XPMY0OnEZBb9MxJ7q_onSmZE3PkYVk3lMSiodFaz2rxMHgQnBsfbSlBiqDUmPjCMXffqKrkFUL2ODVPNIMNe-Yu7RjRieDRvFTIr",
@@ -174,6 +177,7 @@ const jkt: NewUMKM[] = [
 
 const bdg: NewUMKM[] = [
   {
+    id: 28734,
     name: "Soto Ayam Khas Madura Cak Zaeini",
     albums: [
       "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSxrMakHAy8glvgD3TrvdNCTAhIflo6C2E-nYYVjRpbgkgD_JTOKprxviWh99LTv5aM87g18LWWLL5-1kBVrw83c_tzMRnYfdC5zgU62GL92BbKeGURTxtyC8o78yJ05vntz2os=w203-h270-k-no",
@@ -232,6 +236,7 @@ const bdg: NewUMKM[] = [
 
 const banjarmasin: NewUMKM[] = [
   {
+    id: 28734,
     name: "Soto Rina Kuin",
     albums: [
       "https://lh3.googleusercontent.com/geougc-cs/AMBA38tD41S7H3VnLNUjJgW05zgFilrl6MtqUoHuHuAig5CFObqbLgcUksszmndwrdb-pbhXFPsIVFxewE08-Vx-I8OmAUby-SzoiMEsRDJn1p2oFoctvLlTDKvaB3Trm5VQw-ZiBsk0eA",
@@ -292,6 +297,7 @@ const banjarmasin: NewUMKM[] = [
 
 const palu: NewUMKM[] = [
   {
+    id: 28735,
     name: "Rumah Makan Moro Seneng",
     albums: [
       "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSzEWOhEC8F4DHS69QAn4EHq42qb2rQsigJwxLq7YBn1leSBlbaY5VqsCk3eKvjVGy9vJ8me1KB6N6X5QK2P8oA4sMeAOloj6wZACu2qPNdntsGOpTRE6sdSVHOIvRyzsWR-89AD=w640-h640-n-k-no",
@@ -352,6 +358,7 @@ const palu: NewUMKM[] = [
 
 const medan: NewUMKM[] = [
   {
+    id: 28736,
     name: "Warung Mie Sop Kinanti",
     location: {
       name: "Jl.setia budi Gg. Tape waroeng miesop KINANTI simpang 5 psr.2, Helvetia Tim., Kec. Medan Helvetia, Kota Medan, Sumatera Utara 20117",

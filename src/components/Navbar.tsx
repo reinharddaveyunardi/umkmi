@@ -9,13 +9,16 @@ import { Colors } from "@/constants/Colors";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const sidebarClass = isOpen ? "translate-x-0" : "translate-x-full";
+  const sidebarClass = isOpen ? "translate-x-1" : "translate-x-full";
 
   return (
-    <div className="w-full h-[70px] justify-center flex fixed z-10 bg-slate-200">
+    <div className="w-full h-[70px] justify-center flex fixed z-10 bg-slate-200 shadow-md">
       <div className="flex w-[80%] h-full justify-between items-center">
-        <div>
-          <Logo />
+        <div className="w-full max-w-[200px] flex gap-2 items-center">
+          {/* <Logo /> */}
+          <h1 className="text-2xl font-extrabold text-blue-600 italic">
+            UMKMi.id
+          </h1>
         </div>
 
         <div className="hidden gap-4 sm:hidden md:flex md:flex-wrap lg:flex">
@@ -47,20 +50,20 @@ export default function Navbar() {
 
       <div
         className={`
-          overflow-y-hidden
-          flex flex-col 
-          w-[40%] lg:hidden 
-          h-screen absolute top-0 right-0 
-          bg-[#1d1d1d] 
-          transition-transform duration-300 ease-in-out
-          rounded-tl-2xl
-          shadow-2xl
-          ${sidebarClass}
-        `}
+    fixed top-0 right-0
+    w-[40%] h-screen
+    z-999
+    bg-[#1d1d1d]
+    transition-transform duration-300 ease-in-out
+    overflow-hidden
+    rounded-tl-2xl
+    shadow-2xl
+    ${sidebarClass}
+  `}
       >
-        <div className="flex flex-col grow gap-4 pt-4 overflow">
+        <div className=" flex flex-col grow gap-4 pt-4 relative">
           <button
-            className="self-end text-white mb-8 px-4"
+            className="self-end text-white mb-8 px-4 z-10"
             onClick={(e) => {
               e.stopPropagation();
               setIsOpen(false);
@@ -82,21 +85,20 @@ export default function Navbar() {
             </svg>
           </button>
 
-          <div className="px-1">
+          <div className="px-4 z-10">
             <Navigation href="/" label="Home" mobile />
             <Navigation href="/about" label="About" mobile />
             <Navigation href="/search" label="Search" mobile />
           </div>
-
-          <div className="absolute border h-auto bottom-0 w-full object-cover">
-            <Image
-              src={"/accessories_1.png"}
-              alt="accessories_1"
-              className="object-cover"
-              width={500}
-              height={120}
-            />
-          </div>
+        </div>
+        <div className="absolute bottom-0  w-full h-[120px] overflow-hidden">
+          <Image
+            src="/accessories_1.png"
+            alt="corak batik"
+            fill
+            className="object-cover object-bottom"
+            priority
+          />
         </div>
       </div>
     </div>
@@ -123,9 +125,9 @@ function Navigation({
     <div className={mobile ? "pl-4 py-2" : ""}>
       {icon && icon()}
       <Link
-        className={`cursor-pointer ${mobile ? "text-xl block" : "text-lg"} ${
-          pathname === href ? "font-bold text-[#E00303]" : "text-black"
-        }`}
+        className={`cursor-pointer ${
+          mobile ? "text-xl block text-white" : "text-lg text-black"
+        } ${pathname === href ? "font-bold text-[#E00303]" : "text-black"}`}
         href={href}
       >
         {label}

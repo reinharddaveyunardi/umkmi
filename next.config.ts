@@ -6,10 +6,10 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: "http",
-        hostname: "googleusercontent.com",
+        protocol: "https",
+        hostname: "lh3.googleusercontent.com",
         port: "",
-        pathname: "/profile/picture/**",
+        pathname: "/**",
       },
     ],
   },

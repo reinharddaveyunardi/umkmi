@@ -1,4 +1,4 @@
-import MapComponent from "@/api/Map";
+import MapComponent from "@/app/ui/Map";
 import React from "react";
 
 export default function Hero() {
