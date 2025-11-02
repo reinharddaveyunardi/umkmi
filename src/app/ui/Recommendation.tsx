@@ -14,6 +14,7 @@ const MAX_RECOMMENDATIONS = 6;
 
 export default function Recommendation() {
   const [recommendation, setRecommendation] = useState<FlattenedUMKM[]>([]);
+  const { heroReady } = useHero();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -66,7 +67,7 @@ export default function Recommendation() {
       setRecommendation(finalRecommendation);
     };
     fetchData();
-  }, []);
+  }, [heroReady]);
   return (
     <section
       className={`flex flex-col items-center p-4 sm:p-6 md:p-8 bg-[#92B4F4] min-h-screen`}
