@@ -53,7 +53,7 @@ export default function Navbar() {
     fixed top-0 right-0
     w-[40%] h-screen
     z-999
-    bg-[#1d1d1d]
+    bg-blue-500
     transition-transform duration-300 ease-in-out
     overflow-hidden
     rounded-tl-2xl

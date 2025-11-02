@@ -31,7 +31,7 @@ export default function Reviews({ data }: { data: umkmDetails }) {
           {data.reviews.map((review, index) => (
             <div
               key={index}
-              className="shrink-0 w-full sm:w-80 lg:w-96 snap-start"
+              className="shrink-0 w-full sm:w-80 lg:w-96 snap-start overflow-x-scroll"
             >
               <ReviewCard data={review} />
             </div>
