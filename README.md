@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# UMKMi.id
 
-## Getting Started
+**Deskripsi singkat:**  
+UMKMi.id adalah website peta interaktif UMKM Indonesia yang membantu pengguna menemukan dan mengenal pelaku UMKM di berbagai daerah secara mudah dan visual.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Tech Stack
+- **Frontend:** Next.js (React + TypeScript)
+- **Styling:** Tailwind CSS
+- **Map Visualization:** D3.js & TopoJSON
+- **Hosting:** Vercel
+- **Animation:** GSAP
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Cara Menjalankan Project
+1. **Clone repository**
+   ```bash
+   git clone https://github.com/[username]/umkmi.git
+3. **Masuk ke directory**
+   ```bash
+   cd umkmi
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. **Install NPM**
+   ```bash
+   npm install
 
-## Learn More
+5. **Run delevopment**
+   ```bash
+   npm run dev
 
-To learn more about Next.js, take a look at the following resources:
+5. **Buka halaman**
+   ```bash
+    http://localhost:3000
+    atau
+    http://(ip):3000
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
+**Progress Saat Ini**
+- **Landing Page**
+Menampilkan peta interaktif UMKM Indonesia.
+Memiliki section rekomendasi UMKM dengan rating dan tombol detail.
+- **Halaman Detail UMKM**
+Menampilkan foto usaha, nama, dan ulasan pelanggan.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Next Development**
+- **Fitur pencarian & filter UMKM berdasarkan kategori/lokasi.**
+- **Sistem login untuk UMKM yang ingin mendaftarkan usahanya**
