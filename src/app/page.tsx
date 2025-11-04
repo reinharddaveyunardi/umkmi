@@ -8,7 +8,7 @@ import { useHero } from "@/contexts/HeroContext";
 export default function Home() {
   const { heroReady } = useHero();
   return (
-    <div className="bg-[#E7E7E7]">
+    <div className="w-full bg-[#171717]/70 backdrop-blur-sm text-white">
       <Hero />
       <Recommendation />
     </div>
