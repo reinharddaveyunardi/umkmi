@@ -12,12 +12,12 @@ export default function Navbar() {
   const sidebarClass = isOpen ? "translate-x-1" : "translate-x-full";
 
   return (
-    <div className="w-full h-[70px] justify-center flex fixed z-10 bg-slate-200 shadow-md">
+    <div className="w-full py-3 justify-center flex fixed z-10 bg-[#171717] shadow-md">
       <div className="flex w-[80%] h-full justify-between items-center">
         <div className="w-full max-w-[200px] flex gap-2 items-center">
           {/* <Logo /> */}
-          <h1 className="text-2xl font-extrabold text-blue-600 italic">
-            UMKMi.id
+          <h1 className="text-2xl font-extrabold text-white italic">
+            UMKMi.<span className="text-blue-500">id</span>
           </h1>
         </div>
 
