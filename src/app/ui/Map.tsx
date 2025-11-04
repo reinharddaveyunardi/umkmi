@@ -231,6 +231,17 @@ const MapComponent = () => {
             const dist = userPos
               ? distance(userPos.lat, userPos.lon, u.lat, u.lon)
               : Infinity;
+
+            const colorPalette = [
+              "#FF5733", // merah
+              "#FFC300", // kuning
+              "#33FF57", // hijau muda
+              "#33C1FF", // biru muda
+              "#9B33FF", // ungu
+              "#FF33A8", // pink
+              "#FF8C33", // oranye
+            ];
+            const randomColor = colorPalette[i % colorPalette.length];
             return (
               <CustomLink key={`umkm-${u.name}-${i}`} href={`/explore/${u.id}`}>
                 <g
@@ -249,7 +260,7 @@ const MapComponent = () => {
                     cx={coords[0]}
                     cy={coords[1]}
                     r={3}
-                    fill={dist < searchRadiusKm ? "green" : "blue"}
+                    fill={dist < searchRadiusKm ? randomColor : `${randomColor}90`}
                     stroke="white"
                     strokeWidth={1.5}
                   />
