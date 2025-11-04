@@ -189,7 +189,7 @@ const MapComponent = () => {
     <div
       id="map-container"
       ref={mapContainerRef}
-      className="flex flex-col items-center select-none w-full h-screen min-h-screen bg-linear-to-b from-[#DCDCDC] via-[#E7E7E7] to-[#92B4F4]"
+      className="flex flex-col items-center select-none w-full h-screen min-h-screen bg-[#171717]"
     >
       <div className="absolute top-20 w-full flex flex-col items-center justify-center">
         <h1 className="text-2xl font-bold mb-6 text-blue-600">Peta UMKM</h1>
@@ -204,10 +204,11 @@ const MapComponent = () => {
         <g ref={mapGroupRef}>
           <path
             d={pathGenerator(geoData) || ""}
-            fill="#E7E7E7"
-            stroke="#1447e6"
-            strokeWidth={0.5}
+            fill="#2a2a2a"
+            stroke="#ffffff20"
+            strokeWidth={0.6}
           />
+
 
           {userPos && userCoords && (
             <path
