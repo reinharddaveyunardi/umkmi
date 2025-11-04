@@ -12,13 +12,14 @@ export default function Navbar() {
   const sidebarClass = isOpen ? "translate-x-1" : "translate-x-full";
 
   return (
-    <div className="w-full py-3 justify-center flex fixed z-10 bg-[#171717] shadow-md">
+    <div className="w-full h-[70px] justify-center flex fixed z-10 bg-[#171717] shadow-md">
       <div className="flex w-[80%] h-full justify-between items-center">
-        <div className="w-full max-w-[200px] flex gap-2 items-center py-1">
-          <h1 className="text-2xl font-extrabold text-white italic leading-none">
+        <div className="w-full max-w-[200px] flex gap-2 items-center pt-[2px]">
+          <h1 className="text-2xl font-extrabold text-white italic leading-none select-none">
             UMKMi.<span className="text-blue-500">id</span>
           </h1>
         </div>
+
 
         <div className="hidden gap-4 sm:hidden md:flex md:flex-wrap lg:flex">
           <Navigation href="/" label="Home" />
