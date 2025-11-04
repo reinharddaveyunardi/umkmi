@@ -14,9 +14,8 @@ export default function Navbar() {
   return (
     <div className="w-full py-3 justify-center flex fixed z-10 bg-[#171717] shadow-md">
       <div className="flex w-[80%] h-full justify-between items-center">
-        <div className="w-full max-w-[200px] flex gap-2 items-center">
-          {/* <Logo /> */}
-          <h1 className="text-2xl font-extrabold text-white italic">
+        <div className="w-full max-w-[200px] flex gap-2 items-center py-1">
+          <h1 className="text-2xl font-extrabold text-white italic leading-none">
             UMKMi.<span className="text-blue-500">id</span>
           </h1>
         </div>
