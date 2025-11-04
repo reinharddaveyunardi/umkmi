@@ -204,8 +204,8 @@ const MapComponent = () => {
         <g ref={mapGroupRef}>
           <path
             d={pathGenerator(geoData) || ""}
-            fill="#2a2a2a"
-            stroke="#ffffff20"
+            fill="#2f2f2f"
+            stroke="#2f2f2f"
             strokeWidth={0.6}
           />
 
