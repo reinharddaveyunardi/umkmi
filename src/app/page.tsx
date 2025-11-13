@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <div className="w-full bg-[#171717]/70 backdrop-blur-sm text-white">
       <Hero />
-      <Recommendation />
+      {/* <Recommendation /> */}
     </div>
   );
 }
