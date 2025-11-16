@@ -20,6 +20,8 @@ import Link from "next/link";
 import { distance } from "@/utils/Distance";
 import UMKMTooltip from "@/components/Tooltip";
 import CustomLink from "@/components/CustomLink";
+import { LoadingDots } from "@/components/LoadingDots";
+import "./css/Map.css";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(Draggable);
@@ -107,7 +109,8 @@ const MapComponent = () => {
     }
   }, [geoData, isDataLoading, setHeroReady]);
 
-  //Resize Map for mobile and desktop
+  //Resize map untuk mobile and desktop
+
   useEffect(() => {
     const h = () => {
       const w =
@@ -154,61 +157,61 @@ const MapComponent = () => {
 
   if (!geoData || !projection || !pathGenerator || isDataLoading)
     return (
-      <div className="flex bg-linear-to-b from-[#DCDCDC] via-[#E7E7E7] to-[#92B4F4] flex-col items-center justify-center min-h-screen w-full text-white p-8">
+      <div className="loading-screen">
         <svg
-          className="text-gray-300 animate-spin mr-3"
+          className="w-16 h-16 animate-spin"
           viewBox="0 0 64 64"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          width="32"
-          height="32"
         >
           <path
             d="M32 3C35.8083 3 39.5794 3.75011 43.0978 5.20749C46.6163 6.66488 49.8132 8.80101 52.5061 11.4939C55.199 14.1868 57.3351 17.3837 58.7925 20.9022C60.2499 24.4206 61 28.1917 61 32C61 35.8083 60.2499 39.5794 58.7925 43.0978C57.3351 46.6163 55.199 49.8132 52.5061 52.5061C49.8132 55.199 46.6163 57.3351 43.0978 58.7925C39.5794 60.2499 35.8083 61 32 61C28.1917 61 24.4206 60.2499 20.9022 58.7925C17.3837 57.3351 14.1868 55.199 11.4939 52.5061C8.801 49.8132 6.66487 46.6163 5.20749 43.0978C3.7501 39.5794 3 35.8083 3 32C3 28.1917 3.75011 24.4206 5.2075 20.9022C6.66489 17.3837 8.80101 14.1868 11.4939 11.4939C14.1868 8.80099 17.3838 6.66487 20.9022 5.20749C24.4206 3.7501 28.1917 3 32 3L32 3Z"
-            stroke="currentColor"
+            stroke="rgba(255,255,255,0.25)"
             strokeWidth="5"
             strokeLinecap="round"
             strokeLinejoin="round"
-          ></path>
+          />
           <path
             d="M32 3C36.5778 3 41.0906 4.08374 45.1692 6.16256C49.2477 8.24138 52.7762 11.2562 55.466 14.9605C58.1558 18.6647 59.9304 22.9531 60.6448 27.4748C61.3591 31.9965 60.9928 36.6232 59.5759 40.9762"
-            stroke="currentColor"
+            stroke="#f0f0f0"
             strokeWidth="5"
             strokeLinecap="round"
             strokeLinejoin="round"
-            className="text-blue-500"
-          ></path>
+          />
         </svg>
-        <div className="text-xl font-medium">Memuat peta!</div>
+
+        <LoadingDots text="Memuat peta" />
       </div>
     );
 
   const userCoords = userPos && projection([userPos.lon, userPos.lat]);
 
   return (
-    <div
-      id="map-container"
-      ref={mapContainerRef}
-      className="flex flex-col items-center select-none w-full h-screen min-h-screen bg-[#171717]"
-    >
-      <div className="absolute top-20 w-full flex flex-col items-center justify-center">
-        <h1 className="text-2xl font-bold mb-6 text-blue-600">Peta UMKM</h1>
+    <div id="map-container" ref={mapContainerRef} className="map-container">
+      <div className="map-header">
+        <h1 className="map-title">Peta UMKM</h1>
+      </div>
+
+      <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex flex-col items-center animate-bounce text-white/80 text-sm z-20">
+        <span>Geser ke bawah</span>
+        <svg width="20" height="20" fill="none" stroke="white" strokeWidth="2">
+          <path d="M5 7l5 5 5-5" />
+        </svg>
       </div>
 
       <svg
         width={mapDimensions.width}
         height={mapDimensions.height}
         viewBox={`0 0 ${mapDimensions.width} ${mapDimensions.height}`}
-        className="h-screen"
+        className="map-svg"
       >
         <g ref={mapGroupRef}>
           <path
             d={pathGenerator(geoData) || ""}
-            fill="#2f2f2f"
-            stroke="#2f2f2f"
+            fill="#9e9e9e"
+            stroke="#9e9e9e"
             strokeWidth={0.6}
           />
-
 
           {userPos && userCoords && (
             <path
@@ -234,14 +237,15 @@ const MapComponent = () => {
               : Infinity;
 
             const colorPalette = [
-              "#FF5733", // merah
-              "#FFC300", // kuning
-              "#33FF57", // hijau muda
-              "#33C1FF", // biru muda
-              "#9B33FF", // ungu
-              "#FF33A8", // pink
-              "#FF8C33", // oranye
+              "#CC4629",
+              "#CC9C00",
+              "#29CC49",
+              "#29A3CC",
+              "#7A29CC",
+              "#CC2986",
+              "#CC7029",
             ];
+
             const randomColor = colorPalette[i % colorPalette.length];
             return (
               <CustomLink key={`umkm-${u.name}-${i}`} href={`/explore/${u.id}`}>
@@ -261,7 +265,9 @@ const MapComponent = () => {
                     cx={coords[0]}
                     cy={coords[1]}
                     r={3}
-                    fill={dist < searchRadiusKm ? randomColor : `${randomColor}90`}
+                    fill={
+                      dist < searchRadiusKm ? randomColor : `${randomColor}90`
+                    }
                     stroke="white"
                     strokeWidth={1.5}
                   />
