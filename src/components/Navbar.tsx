@@ -8,7 +8,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
 
-  const isMapPage = pathname === "@/app/ui/Map";
+  const isMapPage = pathname === "/ui/Map" || pathname.startsWith("/explore/");
 
   return (
     <>
@@ -20,42 +20,19 @@ export default function Navbar() {
 
           <div className="btn-group">
             {isMapPage ? (
-              <Link href="/login">
+              <Link href="/">
                 <button className="btn-get-started">
-                  <span>Login</span>
+                  <span>Home</span>
                 </button>
               </Link>
             ) : (
-              <Link href={`/ui/Map.tsx`}>
+              <Link href={`/ui/Map`}>
                 <button className="btn-get-started">
                   <span>Get Started</span>
                 </button>
               </Link>
             )}
           </div>
-        </div>
-      </div>
-
-      {/* SIDEBAR MOBILE */}
-      <div className={`sidebar ${isOpen ? "sidebar-open" : ""}`}>
-        <button className="close-btn" onClick={() => setIsOpen(false)}>
-          ×
-        </button>
-
-        <div className="sidebar-buttons">
-          <button className="btn-get-started">
-            <span>Get Started</span>
-          </button>
-        </div>
-
-        <div className="sidebar-img">
-          <Image
-            src="/accessories_1.png"
-            alt="batik"
-            fill
-            className="img-cover"
-            priority
-          />
         </div>
       </div>
     </>

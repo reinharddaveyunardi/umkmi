@@ -26,7 +26,7 @@ export default function UMKMTooltip({
         left: Math.max(10, left),
         top,
         pointerEvents: "none",
-        zIndex: 99,
+        zIndex: 999,
       }}
       className="w-48 bg-white p-3 rounded-lg shadow-xl border border-blue-600"
     >
