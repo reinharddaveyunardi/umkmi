@@ -1,0 +1,166 @@
+.rekomen-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px;
+  background: var(--background);
+  min-height: 100vh;
+  background: #0d1216 url("/Pattern.svg");
+  background-repeat: repeat;
+  background-size: 100px;
+}
+
+.rekomen-title {
+  font-size: 25px;
+  font-weight: 800;
+}
+
+.rekomen-title.up {
+  color: var(--whitex);
+  margin-bottom: -10px;
+}
+
+.rekomen-title.down {
+  color: var(--second);
+  margin-bottom: 35px;
+}
+
+.rekomen-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  width: 100%;
+  max-width: 900px;
+}
+
+.rekomen-empty {
+  color: #a4a4a4;
+  margin-top: 30px;
+  font-size: 16px;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.rekomen-card {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+  border: 1px solid #e1e1e1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: 0.2s ease;
+  margin-top: 5px;
+}
+
+.rekomen-card:hover {
+  transform: translateY(-3px);
+}
+
+.rekomen-thumb {
+  position: relative;
+  width: 100%;
+  height: 150px;
+  overflow: hidden;
+}
+
+.rekomen-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.rekomen-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: #ec2f2f;
+  color: #ffffff;
+  font-size: 14px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-weight: 700;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+}
+
+.rekomen-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.rekomen-name {
+  font-size: 20px;
+  font-weight: 700;
+  color: #111;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.rekomen-rating {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.rekomen-rating-text {
+  font-size: 14px;
+  color: #555;
+}
+
+.rekomen-desc {
+  font-size: 14px;
+  color: #444;
+  height: 40px;
+  overflow: hidden;
+}
+
+.rekomen-actions {
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.rekomen-btn {
+  padding: 10px 16px;
+  background: var(--second);
+  color: #ffffff;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 15px;
+  transition: 0.15s ease;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rekomen-btn:hover {
+  background: #1e4fc8;
+}
+
+@media (min-width: 768px) {
+  .rekomen-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
+
+  .rekomen-thumb {
+    height: 170px;
+  }
+
+  .rekomen-name {
+    font-size: 22px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .rekomen-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .rekomen-thumb {
+    height: 180px;
+  }
+}
