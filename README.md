@@ -1,13 +1,13 @@
 # UMKMi.id
 
 **Deskripsi singkat:**  
-UMKMi.id adalah website peta interaktif UMKM Indonesia yang membantu pengguna menemukan dan mengenal pelaku UMKM di berbagai daerah secara mudah dan visual.
+UMKMi.id adalah website yang membantu pengguna menemukan UMKM lokal melalui peta interaktif. Platform ini memetakan persebaran UMKM di seluruh Indonesia agar masyarakat lebih mudah menemukan usaha kecil di sekitar mereka, sementara pelaku UMKM mendapatkan visibilitas yang lebih besar. Dengan tampilan sederhana dan informatif, UMKMi.id menjadi solusi awal untuk mengatasi masalah promosi digital UMKM.
 
 ---
 
 ## Tech Stack
 - **Frontend:** Next.js (React + TypeScript)
-- **Styling:** Tailwind CSS
+- **Styling:** Tailwind CSS + Classic CSS
 - **Map Visualization:** D3.js & TopoJSON
 - **Hosting:** Vercel
 - **Animation:** GSAP
@@ -39,11 +39,22 @@ UMKMi.id adalah website peta interaktif UMKM Indonesia yang membantu pengguna me
 ---
 **Progress Saat Ini**
 - **Landing Page**
-Menampilkan peta interaktif UMKM Indonesia.
-Memiliki section rekomendasi UMKM dengan rating dan tombol detail.
+Menampilkan halaman utama yang berisi alasan pengguna harus menggunakan website ini.
+- **Halaman Peta**
+Menampilkan peta interaktif UMKM Indonesia. Memiliki section rekomendasi UMKM dengan rating dan tombol detail.
 - **Halaman Detail UMKM**
 Menampilkan foto usaha, nama, dan ulasan pelanggan.
 
 **Next Development**
-- **Fitur pencarian & filter UMKM berdasarkan kategori/lokasi.**
-- **Sistem login untuk UMKM yang ingin mendaftarkan usahanya**
+Pengembangan website UMKMi ke depannya akan difokuskan pada penyempurnaan fitur dan peningkatan pengalaman pengguna. Berikut beberapa fitur yang direncanakan:
+
+---
+-	**Fitur Pencarian & Filter**
+Memungkinkan pengguna mencari UMKM berdasarkan kategori, lokasi, atau jenis usaha.
+-	**Sistem Login & Registrasi UMKM**
+Supaya pelaku usaha dapat mendaftarkan dan mengelola profil usahanya secara mandiri.
+-	**Perbaikan Bug**
+Meningkatkan stabilitas dan performa website.
+-	**Peningkatan UI/UX**
+Menghadirkan tampilan yang lebih interaktif, menarik, dan mudah digunakan.
+
