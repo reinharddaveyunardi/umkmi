@@ -45,10 +45,10 @@ Menampilkan peta interaktif UMKM Indonesia. Memiliki section rekomendasi UMKM de
 - **Halaman Detail UMKM**
 Menampilkan foto usaha, nama, dan ulasan pelanggan.
 
+---
 **Next Development**
 Pengembangan website UMKMi ke depannya akan difokuskan pada penyempurnaan fitur dan peningkatan pengalaman pengguna. Berikut beberapa fitur yang direncanakan:
 
----
 -	**Fitur Pencarian & Filter**
 Memungkinkan pengguna mencari UMKM berdasarkan kategori, lokasi, atau jenis usaha.
 -	**Sistem Login & Registrasi UMKM**
