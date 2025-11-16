@@ -100,15 +100,12 @@ export class umkm {
 
   static async getDetails(id: string) {
     try {
-      const res = await fetch(
-        `${this.apiUrl}/api/umkm/ChIJLTSG7aMh1DERGTJ_Gai0Ya4`,
-        {
-          headers: {
-            "x-api-key": "lombamia",
-            "x-server-request": "1",
-          },
-        }
-      );
+      const res = await fetch(`${this.apiUrl}/api/umkm/${id}`, {
+        headers: {
+          "x-api-key": "lombamia",
+          "x-server-request": "1",
+        },
+      });
 
       if (!res.ok) {
         console.error("Failed fetching UMKM details:", res.status);
